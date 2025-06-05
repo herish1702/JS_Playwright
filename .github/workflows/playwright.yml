@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: macos-latest  # Or switch to 'windows-latest' if needed
+    runs-on: windows-latest  # Or switch to 'windows-latest' if needed
 
     steps:
       - name: Checkout code
