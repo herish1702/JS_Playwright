@@ -1,16 +1,19 @@
 const {test} = require('@playwright/test');
-const {LoginPageLocators} = require('../Locators/LoginPageLocator.js');
+require('dotenv').config();
+const LoginPageLocators = require('../Locators/LoginPageLocator.json');
 const {NavbarLocators} = require('../Locators/NavbarLocator.js');
 const {ClientPageLocators} = require('../Locators/ClientPageLocator.js');
 const {browserAction} = require('../Browser_Action/Browser_Action.js');
 const {StaticData,LoginData} = require('../Data/Data.js');
 
 
-const login = async (browserActionObject)=> {
+
+const login = async (browserActionObject, selectedLocators)=> {
+    console.log(selectedLocators,"test")
     await browserActionObject.performGoToAction(StaticData.baseUrl);
-    await browserActionObject.performFillAction(LoginPageLocators.testEnvironmentLogin.usernameField,LoginData.adminLogin.userName);
-    await browserActionObject.performFillAction(LoginPageLocators.testEnvironmentLogin.passwordField,LoginData.adminLogin.password);
-    await browserActionObject.performClickAction(LoginPageLocators.testEnvironmentLogin.loginButton);
+    await browserActionObject.performFillAction(selectedLocators.usernameField,LoginData.adminLogin.userName);
+    await browserActionObject.performFillAction(selectedLocators.passwordField,LoginData.adminLogin.password);
+    await browserActionObject.performClickAction(selectedLocators.loginButton);
     await console.log("Login Successfully")
 };
 
@@ -18,15 +21,15 @@ const add_client = async(browserActionObject) => {
     // let browserActionObject = new browserAction(page);
     await browserActionObject.performClickAction(NavbarLocators.testEnvironmentLogin.clientCta);
     await browserActionObject.performClickAction(ClientPageLocators.testEnvironmentLogin.addClientCta);
-    // await page.locator("").click()
-    // await page.locator("").fill("Admin Client fhg")
-    // await page.locator("").click()
-    // await page.locator("[type='search']").click()
-    // await page.locator("[type='search']").fill("Admin Client fhg")
-    // await page.locator("").click()
-    // await page.locator("").click()
-    // await page.locator("").click()
-    // await page.locator("[type='search']").fill("Admin Client fhg")
+    await page.locator("").click()
+    await page.locator("").fill("Admin Client fhg")
+    await page.locator("").click()
+    await page.locator("[type='search']").click()
+    await page.locator("[type='search']").fill("Admin Client fhg")
+    await page.locator("").click()
+    await page.locator("").click()
+    await page.locator("").click()
+    await page.locator("[type='search']").fill("Admin Client fhg")
 };
 
 const add_project = async(page) => {
@@ -57,6 +60,8 @@ const add_user = async (page)=>{
 
 test("Login Functionality ", async ({ page }) => {
     let browserActionObject = new browserAction(page);
-    await login(browserActionObject);
-    await add_client(browserActionObject);
+    const environment = process.env.ENV ;
+    const selectedLocators = LoginPageLocators[environment];
+    await login(browserActionObject, selectedLocators);
+    //await add_client(browserActionObject, selectedLocators);
 });

@@ -1,0 +1,13 @@
+{
+  "staging": {
+    "usernameField": "[type=email]",
+    "passwordField": "[type=password]",
+    "loginButton": "[type='submit']"
+  },
+  "qa": {
+    "usernameField": "#email",
+    "passwordField": "#password",
+    "loginButton": "#login"
+  }
+}
+
