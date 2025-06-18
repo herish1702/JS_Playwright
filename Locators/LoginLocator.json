@@ -1,0 +1,10 @@
+{
+  "qa": {
+    "usernameField": "#email",
+    "continueCta": "//button[text()='Continue']",
+    "passwordField": "#password",
+    "errorMessage": "//div[text()='Invalid password.']",
+    "signInCta": "//button[text()='Sign in']"
+  }
+}
+

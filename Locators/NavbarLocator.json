@@ -1,0 +1,10 @@
+{
+  "qa": {
+    "dashboardTab": "//span[text()='Dashboard']",
+    "orderTab": "//span[text()=' Orders']",
+    "taskTab": "//span[text()=' Tasks']",
+    "todayTaskTab": "//span[text()=\"Today's Tasks\"]",
+    "checkAvailabilityTab": "//span[text()=' Check Availability']"
+  }
+}
+

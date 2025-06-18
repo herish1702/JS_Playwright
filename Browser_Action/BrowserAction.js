@@ -1,4 +1,4 @@
-export class browserAction {
+class BrowserAction {
     constructor(page){
         this.page = page;
     }
@@ -9,9 +9,11 @@ export class browserAction {
         return  await this.page.locator(locator);
     }
     async performClickAction(locator){
-        await (await this.performLocatorAction(locator)).click();
+        await locator.click();
     }
     async performFillAction(locator, data) {
-        await (await this.performLocatorAction(locator)).fill(data);
+        await locator.fill(data);
     }
 }   
+
+module.exports = {BrowserAction};

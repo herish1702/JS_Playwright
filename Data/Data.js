@@ -1,11 +1,8 @@
 export class StaticData {
-  static baseUrl ='http://20.96.182.140:4000/'
+  static baseUrl ='https://www.fabriplay.com/login'
 }
 
 export class LoginData {
-
-  static adminLogin = {
-    userName : "admin@nucleus.com",
-    password : '123456'
-  }
+  static userName = "6369188818";
+  static password = 'Mukilan@2003';
 }
